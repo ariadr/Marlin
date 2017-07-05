@@ -35,7 +35,7 @@
   /**
    * Marlin release version identifier
    */
-  #define SHORT_BUILD_VERSION "1.1.2"
+  #define SHORT_BUILD_VERSION "RC3DP112"
 
   /**
    * Verbose version identifier which should contain a reference to the location
@@ -70,7 +70,7 @@
   /**
    * Defines a generic printer name to be output to the LCD after booting Marlin.
    */
-  #define MACHINE_NAME "3D Printer"
+  #define MACHINE_NAME "BuildBOT"
 
   /**
    * The SOURCE_CODE_URL is the location where users will find the Marlin Source
@@ -83,12 +83,14 @@
   /**
    * Default generic printer UUID.
    */
-  #define DEFAULT_MACHINE_UUID "cede2a2f-41a2-4748-9b12-c55c62f367ff"
+  #define DEFAULT_MACHINE_UUID "01e7b16e-dbdd-465f-b62c-457227a50b5b"
 
   /**
    * The WEBSITE_URL is the location where users can get more information such as
    * documentation about a specific Marlin release.
    */
-  #define WEBSITE_URL "http://marlinfw.org"
+  //#define WEBSITE_URL "http://marlinfw.org"
+  #define MY_MACHINE "BuildBOT"
+  #define BUILT_BY "by Aria"
 
 #endif // USE_AUTOMATIC_VERSIONING

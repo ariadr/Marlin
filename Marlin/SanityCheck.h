@@ -223,8 +223,12 @@
   #error "SOURCE_CODE_URL must be specified."
 #elif !defined(DEFAULT_MACHINE_UUID)
   #error "DEFAULT_MACHINE_UUID must be specified."
-#elif !defined(WEBSITE_URL)
-  #error "WEBSITE_URL must be specified."
+//#elif !defined(WEBSITE_URL)
+//  #error "WEBSITE_URL must be specified."
+#elif !defined(MY_MACHINE)
+  #error "MY_MACHINE must be specified."
+#elif !defined(BUILT_BY)
+  #error "BUILT_BY must be specified."
 #endif
 
 /**

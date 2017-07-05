@@ -305,20 +305,27 @@ static void lcd_implementation_init() {
       constexpr uint8_t offy = DOG_CHAR_HEIGHT;
     #endif
 
-    const uint8_t txt1X = (u8g.getWidth() - (sizeof(STRING_SPLASH_LINE1) - 1) * (DOG_CHAR_WIDTH)) / 2;
+    //const uint8_t txt1X = (u8g.getWidth() - (sizeof(STRING_SPLASH_LINE1) - 1) * (DOG_CHAR_WIDTH)) / 2;
+    const uint8_t txt1X = 70;
+    const uint8_t txt2X = 70;
+    const uint8_t txt3X = 70;
 
     if (show_bootscreen) {
       u8g.firstPage();
       do {
-        u8g.drawBitmapP(offx, offy, START_BMPBYTEWIDTH, START_BMPHEIGHT, start_bmp);
+        //u8g.drawBitmapP(offx, offy, START_BMPBYTEWIDTH, START_BMPHEIGHT, start_bmp);
+        u8g.drawBitmapP(0, 0, START_BMPBYTEWIDTH, START_BMPHEIGHT, start_bmp);
         lcd_setFont(FONT_MENU);
-        #ifndef STRING_SPLASH_LINE2
-          u8g.drawStr(txt1X, u8g.getHeight() - (DOG_CHAR_HEIGHT), STRING_SPLASH_LINE1);
-        #else
-          const uint8_t txt2X = (u8g.getWidth() - (sizeof(STRING_SPLASH_LINE2) - 1) * (DOG_CHAR_WIDTH)) / 2;
-          u8g.drawStr(txt1X, u8g.getHeight() - (DOG_CHAR_HEIGHT) * 3 / 2, STRING_SPLASH_LINE1);
-          u8g.drawStr(txt2X, u8g.getHeight() - (DOG_CHAR_HEIGHT) * 1 / 2, STRING_SPLASH_LINE2);
-        #endif
+        //#ifndef STRING_SPLASH_LINE2
+          //u8g.drawStr(txt1X, u8g.getHeight() - (DOG_CHAR_HEIGHT), STRING_SPLASH_LINE1);
+        //#else
+          //const uint8_t txt2X = (u8g.getWidth() - (sizeof(STRING_SPLASH_LINE2) - 1) * (DOG_CHAR_WIDTH)) / 2;
+          //u8g.drawStr(txt1X, u8g.getHeight() - (DOG_CHAR_HEIGHT) * 3 / 2, STRING_SPLASH_LINE1);
+          //u8g.drawStr(txt2X, u8g.getHeight() - (DOG_CHAR_HEIGHT) * 1 / 2, STRING_SPLASH_LINE2);
+          u8g.drawStr(txt1X, u8g.getHeight() - (DOG_CHAR_HEIGHT) * 12 / 3, STRING_SPLASH_LINE1);
+          u8g.drawStr(txt2X, u8g.getHeight() - (DOG_CHAR_HEIGHT) * 9 / 3, STRING_SPLASH_LINE2);
+          u8g.drawStr(txt3X, u8g.getHeight() - (DOG_CHAR_HEIGHT) * 6 / 3, STRING_SPLASH_LINE3);
+        //#endif
       } while (u8g.nextPage());
     }
 
