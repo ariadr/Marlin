@@ -106,7 +106,8 @@
 #define RADIANS(d) ((d)*M_PI/180.0)
 #define DEGREES(r) ((r)*180.0/M_PI)
 #define HYPOT2(x,y) (sq(x)+sq(y))
-#define HYPOT(x,y) sqrt(HYPOT2(x,y))
+
+#define SIGN(a) ((a>0)-(a<0))
 
 // Macros to contrain values
 #define NOLESS(v,n) do{ if (v < n) v = n; }while(0)
@@ -127,7 +128,6 @@
 #define DECIMAL(a) (NUMERIC(a) || a == '.')
 #define NUMERIC_SIGNED(a) (NUMERIC(a) || (a) == '-' || (a) == '+')
 #define DECIMAL_SIGNED(a) (DECIMAL(a) || (a) == '-' || (a) == '+')
-#define PRINTABLE(C) (((C) & 0xC0u) != 0x80u)
 #define COUNT(a) (sizeof(a)/sizeof(*a))
 #define ZERO(a) memset(a,0,sizeof(a))
 #define COPY(a,b) memcpy(a,b,min(sizeof(a),sizeof(b)))
@@ -192,4 +192,17 @@
 #define RECIPROCAL(x) (NEAR_ZERO(x) ? 0.0 : 1.0 / (x))
 #define FIXFLOAT(f) (f + 0.00001)
 
-#endif // __MACROS_H
+//
+// Maths macros that can be overridden by HAL
+//
+#define ATAN2(y, x) atan2(y, x)
+#define FABS(x)     fabs(x)
+#define POW(x, y)   pow(x, y)
+#define SQRT(x)     sqrt(x)
+#define CEIL(x)     ceil(x)
+#define FLOOR(x)    floor(x)
+#define LROUND(x)   lround(x)
+#define FMOD(x, y)  fmod(x, y)
+#define HYPOT(x,y)  SQRT(HYPOT2(x,y))
+
+#endif //__MACROS_H
